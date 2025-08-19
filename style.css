@@ -1,0 +1,376 @@
+/* Apply this font stack to your entire body */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Your existing CSS for headings and paragraphs will now use this font */
+h1, h2 {
+    font-family: inherit; /* Inherits the font from the body */
+}
+
+p, a, .main-nav a {
+    font-family: inherit;
+}
+/* Styling for the main header container */
+.site-header {
+    display: flex; /* Enables Flexbox for easy alignment */
+    justify-content: space-between; /* Puts the logo on the left, nav in the middle, and contact button on the right */
+    align-items: center; /* Vertically centers all items */
+    padding: 15px 50px;
+    background-color:transparent;
+}
+
+/* Styling for the logo image */
+.logo-img {
+    height: 50px;
+}
+
+/* Styling for the main navigation menu (Projects and About) */
+.main-nav ul {
+    list-style: none; /* Removes bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Arranges the list items in a row */
+    gap: 15px; /* Adds space between the buttons */
+}
+
+/* Styling for the "Projects" and "About" buttons */
+.main-nav a {
+    text-decoration: none; /* Removes the underline from links */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px; /* Gives the buttons a rounded shape */
+    backdrop-filter: blur(10px); /* This creates a clear, glass-like effect */
+    background-color: rgba(255, 255, 255, 0.2); /* A semi-transparent white background */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* A subtle white border */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for the "glass" buttons */
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* Makes the button more visible on hover */
+    transform: scale(1.1); /* Makes the image slightly larger */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Adds a glowing shadow */
+}
+
+/* Styling for the "Contact" button */
+.contact-button {
+    text-decoration: none;
+    color: white; /* White text */
+    background-color: #4CAF50; /* A pleasant green color */
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the contact button */
+.contact-button:hover {
+    background-color: #45a049; /* A slightly darker green on hover */
+    transform: scale(1.1); /* Makes the image slightly larger */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Adds a glowing shadow */
+}
+/* Container for the hero section */
+.hero {
+    position: relative; 
+    overflow: hidden; 
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Centers the text inside the hero-content */
+}
+
+/* Dark overlay for the background video */
+.hero::before {
+    content: "";
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black color */
+    z-index: -1; /* Puts the overlay in front of the video */
+    object-fit: cover;
+}
+
+/* Style for the background video */
+.hero-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2; /* Puts the video behind all other content and the overlay */
+    /*transform: translate(-50%, -50%); */
+    object-fit: cover;
+}
+
+/* The content container */
+.hero-content {
+    position: relative;
+    z-index: 1; /* Puts the content on top of the video and overlay */
+    color: white; /* Default text color for the section */
+}
+.profile-pic {
+    width: 250px; /* Sets the width of the image */
+    height: 250px; /* Sets the height of the image */
+    border-radius: 50%; /* This is what makes the image perfectly round */
+    border: 3px solid white; /* Adds a thin white border around the image */
+    margin-bottom: 1px; /* Creates space between the image and the heading below it */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.profile-pic:hover {
+    transform: scale(1.1); /* Makes the image slightly larger */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Adds a glowing shadow */
+}
+
+/* Styling for the main heading */
+.hero-content h1 {
+    color: #4CAF50; /* Same green color as the contact button */
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+/* Styling for the paragraph text */
+.hero-content p {
+    color: white;
+    font-size: 1em;
+    margin-top: 0;
+}
+/* Styling for the "Work Experience" title */
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: white;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* The main section container for the entire ticker */
+.ticker-section {
+    width: 100%;
+    overflow: hidden;
+    background-color: transparent;
+    padding: 20px 0;
+    z-index: 1;
+}
+
+/* The container that holds all the moving items */
+.ticker-container {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 40px;
+    animation: ticker-scroll 25s linear infinite; /* Speed adjusted */
+}
+
+/* The individual items (image and word) */
+.ticker-item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    cursor: pointer; /* Changes the cursor to a pointer to indicate interactivity */
+}
+
+/* Styling for the images inside the ticker */
+.ticker-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+/* Styling for the text inside the ticker */
+.ticker-item p {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: white;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+.ticker-container:hover {
+    animation-play-state: paused;
+}
+.ticker-item:hover {
+transform: scale(1.1); /* Makes the item slightly larger */
+box-shadow: 0 0 15px rgba(0, 255, 0, 0.8); /* Adds a glowing green shadow */
+}
+.ticker-item:hover p {
+color: #ADFF2F; /* A lighter green color */
+}
+/* The CSS keyframes for the seamless animation */
+@keyframes ticker-scroll {
+    from {
+        transform: translateX(0); /* Animation starts here */
+    }
+    to {
+        transform: translateX(-50%); /* Animation ends here */
+    }
+}
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.descriptions-main {
+    width: 80%;
+    max-width: 900px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    color: white;
+    animation: fade-in-up 1s ease-out forwards;
+}
+
+/* Updated styling for individual description items */
+.item-description {
+    display: flex; /* Makes the containers inside align horizontally */
+    gap: 40px; /* Adds spacing between the two columns */
+    align-items: center; /* Vertically centers the image and text */
+    
+    margin-bottom: 80px;
+    padding-bottom: 80px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.item-description:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Container for the image and title */
+.description-media {
+    display: flex;
+    flex-direction: column; /* Stacks the image and title vertically */
+    flex-shrink: 0; /* Prevents the image from shrinking */
+    text-align: center;
+    max-width: 250px;
+}
+
+/* Styling for the image within the description */
+.description-img {
+    width: 100%;
+    border-radius: 10px;
+    border: 3px solid white;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.description-img:hover {
+    transform: scale(1.05); /* Makes the image slightly larger */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Adds a subtle white glow */
+}
+/* Styling for the title of each description */
+.description-media h3 {
+    font-size: 1.8em;
+    color: #4CAF50;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Container for the description paragraph */
+.description-text {
+    flex-grow: 1; /* Allows the text to take up the remaining space */
+}
+.about-me-section {
+    width: 100%;
+    padding: 100px 0; /* Adds vertical space above and below the section */
+    text-align: center;
+}
+
+.about-me-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto; /* Centers the container on the page */
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+.about-me-media {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    text-align: center;
+    max-width: 250px;
+}
+
+.about-me-img {
+    width: 100%;
+    border-radius: 50%; /* Make the image round */
+    border: 3px solid white;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.about-me-img:hover {
+    transform: scale(1.05); /* Makes the image slightly larger */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Adds a subtle white glow */
+}
+
+.about-me-media h3 {
+    font-size: 1.8em;
+    color: #4CAF50;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.about-me-text {
+    flex-grow: 1;
+    text-align: left;
+}
+/* Styling for the container of the social buttons */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Base style for the anchor tag (the clickable area) */
+.social-button {
+    display: inline-block;
+    padding: 10px; /* Gives some space around the icon */
+    background-color: transparent;
+    border-radius: 50%; /* Make the button area round */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* The hover effect to make the button lift and glow */
+.social-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(76, 175, 80, 0.6); /* A green glowing shadow */
+}
+
+/* Styling for the icons themselves */
+.social-icon {
+    width: 40px; /* Set the size of the icon */
+    height: 40px;
+    filter: invert(100%); /* Makes the icon white */
+}
+
+/* Optional: Invert the icon color on hover */
+.social-button:hover .social-icon {
+    filter: none; /* If your icon is black, this will make it show its original color */
+}
